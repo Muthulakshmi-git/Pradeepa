@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evolve Snacks</title>
+  <style>
+    .card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+    .hero-image {
+  width: 5000%;
+  max-width: 1000px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+    body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fafafa;
+}
+
+.site-header {
+  background: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.site-header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.site-header nav li {
+  margin-left: 20px;
+}
+
+.site-header nav a {
+  text-decoration: none;
+  color: #333;
+}
+.nav{
+    text-align: left;
+
+}
+
+#hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: #e8f5e9;
+}
+
+#hero button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#countdown-timer {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.card {
+  background: #6cd572;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  min-width: 120px;
+  text-align: center;
+}
+.a{
+    text-align: center;
+}
+</style>
+</head>
+<div class="logo">
+  <img src="logo.png" alt="Evolve Snacks Logo" width="120" height="40" />
+</div>
+<section id="hero">
+  <img src="discount.jpg" alt="Healthy Snacks" class="hero-image" />
+  <h1>Healthy Snacks for Bharat</h1>
+  <p>Freshly made, packed with nutrition.</p>
+  <button id="countdown-btn">Grab Discount!</button>
+  <div id="countdown-timer"></div>
+</section>
+<div class="cards">
+  <div class="card">
+    <img src="puffs.jpg" alt="Masala Puffs" />
+    <p>Masala Puffs</p>
+  </div>
+  <div class="card">
+    <img src="fruitbars.jpg" alt="Fruit Bars" />
+    <p>Fruit Bars</p>
+  </div>
+  <div class="card">
+    <img src="mixed_seed.jpg" alt="Seed Mixes" />
+    <p>Seed Mixes</p>
+  </div>
+</div>
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <!-- Example SVG logo -->
+      <svg width="120" height="40" viewBox="0 0 120 40">
+        <rect width="120" height="40" fill="#4caf50"/>
+        <text x="60" y="25" font-size="20" font-family="Arial" fill="#fff" text-anchor="middle">Evolve</text>
+      </svg>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <h1>Healthy Snacks for Bharat</h1>
+    <p>Freshly made, packed with nutrition.</p>
+    <button id="countdown-btn">Grab Discount!</button>
+    <div id="countdown-timer"></div>
+  </section>
+
+  <section id="collections">
+    <h2>Our Collections</h2>
+    <div class="cards">
+      <div class="card">Masala Puffs</div>
+      <div class="card">Fruit Bars</div>
+      <div class="card">Seed Mixes</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Evolve Snacks Pvt Ltd</p>
+  </footer>
+
+  <script>
+    // Countdown logic using plain JS or could adapt jQuery
+function startCountdown(duration, displayEl) {
+  let remaining = duration;
+  const interval = setInterval(() => {
+    if (remaining <= 0) {
+      clearInterval(interval);
+      displayEl.text('🎉 Offer ended!');
+      return;
+    }
+    const mins = Math.floor(remaining / 60);
+    const secs = remaining % 60;
+    displayEl.text('Offer ends in ${mins}m ${secs}s');
+    remaining--;
+  }, 1000);
+}
+
+$(document).ready(() => {
+  $('#countdown-btn').on('click', () => {
+    startCountdown(300, $('#countdown-timer'));
+  });
+});
+
+</script>
+</body>
